@@ -21,8 +21,10 @@ jobs:
 
       - name: Remove conflicts and Install Docker
         run: |
-          sudo apt-get remove moby-containerd moby-runc
-          sudo apt-get install -y docker.io
+          # sudo apt-get remove moby-containerd moby-runc
+          sudo apt-get remove --purge docker docker-engine docker.io containerd runc
+          # sudo apt-get install -y docker.io
+          sudo apt-get install -y docker.io --allow-downgrades
 
       - name: Install Docker Compose
         run: |
